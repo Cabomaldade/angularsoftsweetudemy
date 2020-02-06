@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+
 
 @Component({
   selector: 'app-myform',
@@ -14,13 +16,13 @@ export class MyformComponent {
     this.name.setValue('A new value here');
   }*/
 
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    address: new FormGroup({
-      street: new FormControl(''),
-      city: new FormControl(''),
-      state: new FormControl('')
+  profileForm = this.fb.group ({
+    firstName: [''],
+    lastName: [''],
+    address: this.fb.group({ // aqui se usa nessa sintax para simplificar
+      street: [''],
+      city: [''],
+      state: [''], // Simplifica com essa sintax onde Angular cria o Form para nós
     })
   });
 
@@ -37,4 +39,6 @@ export class MyformComponent {
       }
     })
   }
+
+  constructor(private fb: FormBuilder) {}
 }
