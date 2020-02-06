@@ -32,7 +32,7 @@ export class MyformComponent {
     this.profileForm.patchValue({ // ao contrário de setValue, com patch podemos passar só parte do objeto
       address: {
         street:'',
-        cicty:'',
+        city:'',
         state:''
       }
     })
