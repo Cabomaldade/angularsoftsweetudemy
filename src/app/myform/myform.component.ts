@@ -28,4 +28,13 @@ export class MyformComponent {
     console.warn(this.profileForm.value);
   }
 
+  clear(){
+    this.profileForm.patchValue({ // ao contrário de setValue, com patch podemos passar só parte do objeto
+      address: {
+        street:'',
+        cicty:'',
+        state:''
+      }
+    })
+  }
 }
